@@ -33,7 +33,7 @@ The application follows a modular architecture:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/pdf-llm-backend.git
+git clone https://github.com/pradycr7/pdf-llm-backend.git
 cd pdf-llm-backend
 ```
 
@@ -60,7 +60,7 @@ MONGO_DB_NAME=pdf_llm_db
 # AWS S3 Configuration
 AWS_ACCESS_KEY_ID=your_access_key_id
 AWS_SECRET_ACCESS_KEY=your_secret_access_key
-AWS_REGION=us-east-1
+AWS_REGION=your-aws-region
 S3_BUCKET_NAME=your-bucket-name
 
 # JWT Configuration
@@ -76,20 +76,19 @@ GEMINI_API_KEY=your_gemini_api_key
 
 ### Local Development
 ```bash
-uvicorn src.main:app --reload
+python main.py
 ```
 
 The API will be available at `http://localhost:8000`
 
-### AWS Lambda Deployment
+## AWS Deployment
 
-The application is also deployed as a serverless application on AWS Lambda via Amazon ECR. You can access the API through the API Gateway:
+The application is deployed as a serverless function using AWS Lambda with API Gateway integration.
 
-```
-https://api-gateway-id.execute-api.region.amazonaws.com/stage
-```
+![AWS Deployment Architecture](./images/aws-deployment.png)
 
-Test the deployed APIs using this endpoint without setting up a local environment.
+The API can be accessed at: https://api-gateway-id.execute-api.region.amazonaws.com/stage
+
 
 ## API Documentation
 
@@ -130,7 +129,7 @@ curl -X POST http://localhost:8000/summarize/60c72b2b5e8e5f5a8c9d1c5a \
 
 ### Query document content
 ```bash
-curl -X POST "http://localhost:8000/query/60c72b2b5e8e5f5a8c9d1c5a/What%20is%20the%20main%20topic%3F"
+curl -X POST "http://localhost:8000/query/60c72b2b5e8e5f5a8c9d1c5a/What is the invoice no, customer no, invoice period, date? Also what is the net amount of the invoice?"
 ```
 
 ## Demo Video
