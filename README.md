@@ -162,20 +162,44 @@ Test data is located in the `tests/fixtures` directory.
 
 ```
 pdf-llm-backend/
-├── src/
-│   ├── comms/              # API communication layer
-│   ├── configs/            # Configuration settings
-│   ├── services/           # Core services
-│   │   ├── llm_service.py  # LLM integration
-│   │   ├── mongodb.py      # Database service
-│   │   ├── pdf_extractor.py# PDF processing
-│   │   └── s3_service.py   # S3 storage service
-│   └── utils/              # Utility functions
-├── tests/                  # Test suite
+├── main.py                 # Application entry point
+├── lambda_function.py      # AWS Lambda handler
+├── Dockerfile              # Docker container definition
+├── requirements.txt        # Project dependencies
+├── README.md               # Project documentation
+├── images/                 # Project images and screenshots
+├── logs/                   # Application logs
+│   └── app.log
 ├── samples/                # Sample PDFs for testing
-├── .env                    # Environment variables
-├── requirements.txt        # Dependencies
-└── README.md               # This file
+│   ├── invalid_samples/    # Invalid PDF test cases
+│   ├── sample_invoices/    # Invoice PDF samples
+│   └── sample_research_paper/ # Research paper samples
+├── experiments/            # Performance testing & experiments
+└── src/                    # Source code
+    ├── comms/              # API communication layer
+    │   ├── api_server.py   # API endpoints
+    │   └── app.py          # FastAPI application
+    ├── configs/            # Configuration settings
+    │   └── settings.py     # Environment & app settings
+    ├── database/           # Database interactions
+    │   └── mongodb.py      # MongoDB service
+    ├── extractors/         # Document processing
+    │   └── pdf_extractor.py# PDF text extraction 
+    ├── models/             # Data models
+    │   └── document.py     # Document schema
+    ├── orchestrator.py     # Service orchestration
+    ├── services/           # Core services
+    │   ├── llm_service.py  # LLM integration
+    │   └── s3_service.py   # S3 storage service
+    ├── tests/              # Test suite
+    │   ├── conftest.py     # Test fixtures
+    │   └── test_api_base.py# Base API tests
+    └── utils/              # Utility functions
+        ├── auth.py         # JWT authentication
+        ├── helpers.py      # Helper functions
+        ├── logger.py       # Logging utilities
+        ├── timing_decorator.py # Performance monitoring
+        └── validate_pdf.py # PDF validation
 ```
 
 ## License
@@ -184,7 +208,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contributors
 
-- [Your Name](https://github.com/yourusername) - Initial work
+- [Pradyumna Mohanty](https://github.com/pradycr7) - Initial work
 
 ## Acknowledgments
 
